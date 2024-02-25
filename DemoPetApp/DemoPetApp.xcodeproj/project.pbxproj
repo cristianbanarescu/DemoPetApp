@@ -14,6 +14,9 @@
 		EC3652BF2B8BCB150094C237 /* DemoPetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652BE2B8BCB150094C237 /* DemoPetAppTests.swift */; };
 		EC3652C92B8BCB150094C237 /* DemoPetAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652C82B8BCB150094C237 /* DemoPetAppUITests.swift */; };
 		EC3652CB2B8BCB150094C237 /* DemoPetAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652CA2B8BCB150094C237 /* DemoPetAppUITestsLaunchTests.swift */; };
+		EC3652D82B8BCBE90094C237 /* DemoPetAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652D72B8BCBE90094C237 /* DemoPetAppViewModel.swift */; };
+		EC3652DA2B8BCCD70094C237 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652D92B8BCCD70094C237 /* Animal.swift */; };
+		EC3652DC2B8BCD8B0094C237 /* AnimalsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652DB2B8BCD8B0094C237 /* AnimalsNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		EC3652C42B8BCB150094C237 /* DemoPetAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoPetAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3652C82B8BCB150094C237 /* DemoPetAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPetAppUITests.swift; sourceTree = "<group>"; };
 		EC3652CA2B8BCB150094C237 /* DemoPetAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPetAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EC3652D72B8BCBE90094C237 /* DemoPetAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPetAppViewModel.swift; sourceTree = "<group>"; };
+		EC3652D92B8BCCD70094C237 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		EC3652DB2B8BCD8B0094C237 /* AnimalsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 			children = (
 				EC3652AD2B8BCB140094C237 /* DemoPetAppApp.swift */,
 				EC3652AF2B8BCB140094C237 /* ContentView.swift */,
+				EC3652D72B8BCBE90094C237 /* DemoPetAppViewModel.swift */,
+				EC3652DB2B8BCD8B0094C237 /* AnimalsNetworkService.swift */,
+				EC3652D92B8BCCD70094C237 /* Animal.swift */,
 				EC3652B12B8BCB140094C237 /* Assets.xcassets */,
 				EC3652B32B8BCB140094C237 /* Preview Content */,
 			);
@@ -257,6 +266,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3652DC2B8BCD8B0094C237 /* AnimalsNetworkService.swift in Sources */,
+				EC3652D82B8BCBE90094C237 /* DemoPetAppViewModel.swift in Sources */,
+				EC3652DA2B8BCCD70094C237 /* Animal.swift in Sources */,
 				EC3652B02B8BCB140094C237 /* ContentView.swift in Sources */,
 				EC3652AE2B8BCB140094C237 /* DemoPetAppApp.swift in Sources */,
 			);
