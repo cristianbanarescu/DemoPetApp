@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel = DemoPetAppViewModel(networkService: AnimalsNetworkService())
-    @State var animals: [Animal]
+    @State var animals: [Animal] = []
     
     var body: some View {
         NavigationStack {
@@ -22,15 +22,14 @@ struct ContentView: View {
             }
             .navigationTitle("Happy Animals")
         }
-    }
-    
-    init(animals: [Animal]) {
-        self.animals = animals
+        .onAppear {
+            animals = viewModel.animals
+        }
     }
 }
 
 #Preview {
-    ContentView(animals: DemoPetAppViewModel(networkService: AnimalsNetworkService()).animals)
+    ContentView()
 }
 
 struct AnimalView: View {
