@@ -26,7 +26,13 @@ struct Animal: Identifiable, Decodable {
     let distance: Int?
 
     static func mock() -> Self {
-        Animal(id: 0, name: "Test", breeds: Breed(primary: "", secondary: "", mixed: true, unknown: true), size: "Small", gender: "Male", status: "Adopted", distance: 1)
+        Animal(id: 0, 
+               name: "Test",
+               breeds: Breed(primary: "", secondary: "", mixed: true, unknown: true),
+               size: "Small",
+               gender: "Male",
+               status: "Adopted",
+               distance: 1)
     }
 }
 

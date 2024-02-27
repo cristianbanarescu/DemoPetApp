@@ -19,7 +19,7 @@ class DemoPetAppViewModel: ObservableObject {
     private let networkService: NetworkServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var petfinderAnimals: PetfinderAnimals?
+    private var petfinderAnimals: PetfinderAnimals?
     @Published var error: Error?
     @Published var fetchingState: FetchingState = .notFetching
     
@@ -32,8 +32,12 @@ class DemoPetAppViewModel: ObservableObject {
         
         getAnimals()
     }
-    
-    private func getAnimals() {
+}
+
+// MARK: - Private
+
+private extension DemoPetAppViewModel {
+    func getAnimals() {
         do {
             fetchingState = .fetching
             _ = try networkService.fetchAnimals().sink(receiveCompletion: receivedCompletion, receiveValue: { [weak self] petfinderAnimals in
@@ -54,13 +58,12 @@ class DemoPetAppViewModel: ObservableObject {
         }
     }
     
-    private func receivedCompletion(completion: Subscribers.Completion<Error>) {
+    func receivedCompletion(completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
             print("Finished OK. Completion: \(completion)")
-            self.error = nil 
+            self.error = nil
         case .failure(let error):
-            // TODO: send back error to ContentView in order to show some alert controller with message and error message
             print(error.localizedDescription)
             self.error = error
         }
