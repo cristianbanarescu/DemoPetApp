@@ -9,20 +9,17 @@ import Foundation
 import Combine
 
 protocol NetworkServiceProtocol {
-    var urlRequest: URLRequest? { get }
-    var animalsPublisher: AnyPublisher<PetfinderAnimals?, Never> { get }
-    var urlSession: URLSession { get }
-    func fetchAnimals() throws
+    func fetchAnimals() throws -> AnyPublisher<PetfinderAnimals, Error>
 }
 
 class AnimalsNetworkService: NetworkServiceProtocol, ObservableObject {
-    private let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4RnZCOTJDT0wzbG9Ka1JIQm96R1BMT1ZLWlRHNENnWGFsNkRvdTZFanNINWxqMlNYQiIsImp0aSI6ImNkMzFmMzIzZTY1ZWZlN2UzMWU2YjBiNGU4MGM5NmExNjNjM2E3MzI0NmQwOTJiZDdmOTk4ZTE1YTQzMTdjMDM0MDlkZDRiMmE1MzM0NmI0IiwiaWF0IjoxNzA5MDYwNDEwLCJuYmYiOjE3MDkwNjA0MTAsImV4cCI6MTcwOTA2NDAxMCwic3ViIjoiIiwic2NvcGVzIjpbXX0.vWISCVBGObQh3eUtaKrxNtU6rXjuKOy9_x5K0IccrwgKolPbI--d5V83tbyZjDpCiHBj8toVZBNVJ9MD5vwLkqHQb9He7rVb41xEQYhsn0pxFYZndUUS7C58-L3-BENXmnrYV1xfoSQCA9XGzsMw-EywAQ0GULTOX5C93Z9CN-NZAJ9kucAxGr_lsn7VF-UZmjVesMaFR3BYVvy4XyoZbVPaVI--fybC-blXk4Ajc0gNRIRJYJ_6eyEW5DPH04ttZrSNg964jVCXqQiynU20do_s0InexE1Yl0xsSIVZZ50NJv4q40oGLkMKyShpxZ3WIRPlVI2BuJrGKK_hwvdq_g"
+    private let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4RnZCOTJDT0wzbG9Ka1JIQm96R1BMT1ZLWlRHNENnWGFsNkRvdTZFanNINWxqMlNYQiIsImp0aSI6ImYyOGJkMjcxMGQ5YzRlOGY4NWYwM2YzNDgyODhiNjg0MWNlZGFkODJjMDI1MzAwNTQ5MGEzZjBiNjQ5MWFkOTJlMDFlNzE4NGM1MWJiYTY1IiwiaWF0IjoxNzA5MDY0OTQ4LCJuYmYiOjE3MDkwNjQ5NDgsImV4cCI6MTcwOTA2ODU0OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.UXLJ8SfLkyIG4ehMDduT7nWPXyLsQF2C8ViBvo3vziBNxUsZnJLZXnM6LcLgPq9279Pfi5BmreLjpihn7Of_aX2xfZXQBRI9fWHp2zWDB8VaZ3xlHNjyKaw3cTJvBoDcIm1zEjxNR1R_x6XDNAE7fXnpYVTXWCsWjPEm9D3644Pj_SBvQskPP2q1GnRhrieWnurcmoyGPdWEyCQZP9Zm2Ge5qzH9igl-YJb9bykI9xsi_uCggPf4m8GrJW-npUO2MZUa5Ssn5eS_I3ZTG1W7mkTr_j0W9Y0H71Zh57MLJIr-bqWgtsP-walo6L1BvSe4X0YUX-WJ3CaA0kjAnWZE0w"
     private var cancellables = Set<AnyCancellable>()
-    @Published private var animals: PetfinderAnimals?
+    @Published var animals: PetfinderAnimals?
     
     // MARK: - NetworkServiceProtocol
     
-    var urlRequest: URLRequest? {
+    private var urlRequest: URLRequest? {
         guard let url = URL(string: "https://api.petfinder.com/v2/animals") else {
             return nil
         }
@@ -32,18 +29,12 @@ class AnimalsNetworkService: NetworkServiceProtocol, ObservableObject {
         return urlRequest
     }
     
-    var animalsPublisher: AnyPublisher<PetfinderAnimals?, Never> {
-        $animals
-            .map { $0 }
-            .eraseToAnyPublisher()
-    }
+    private let urlSession: URLSession
     
-    let urlSession: URLSession
-    
-    func fetchAnimals() throws {
+    func fetchAnimals() throws -> AnyPublisher<PetfinderAnimals, Error> {
         guard let urlRequest else { throw URLError(.badURL) }
         
-        urlSession.dataTaskPublisher(for: urlRequest) // TODO: inject data task publisher instead of using URLSession.shared
+        return urlSession.dataTaskPublisher(for: urlRequest)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(handleOutput)
@@ -54,33 +45,14 @@ class AnimalsNetworkService: NetworkServiceProtocol, ObservableObject {
                 }
                 return error
             })
-            .sink(receiveCompletion: receivedCompletion(completion:), receiveValue: { [weak self] fetchedAnimals in
-                self?.animals = fetchedAnimals
-            })
-            .store(in: &cancellables)
+            .eraseToAnyPublisher()
     }
     
     init(urlSession: URLSession) {
         self.urlSession = urlSession
-        tryToFetchAnimals()
     }
     
     // MARK: - Private
-    
-    private func tryToFetchAnimals() {
-        do {
-            try fetchAnimals()
-        } catch {
-            if let error = error as? URLError {
-                switch error.code {
-                case .badURL:
-                    print("bad url")
-                default:
-                    print("other error: \(error.code)")
-                }
-            }
-        }
-    }
     
     private func handleOutput(output: URLSession.DataTaskPublisher.Output) throws -> Data {
         guard let response = output.response as? HTTPURLResponse,
@@ -88,15 +60,5 @@ class AnimalsNetworkService: NetworkServiceProtocol, ObservableObject {
             throw URLError(.badServerResponse)
         }
         return output.data
-    }
-    
-    private func receivedCompletion(completion: Subscribers.Completion<Error>) {
-        switch completion {
-        case .finished:
-            print("Finished OK. Completion: \(completion)")
-        case .failure(let error):
-            // TODO: send back error to ContentView in order to show some alert controller with message and error message
-            print(error.localizedDescription)
-        }
     }
 }

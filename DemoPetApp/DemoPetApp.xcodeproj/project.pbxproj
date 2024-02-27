@@ -11,13 +11,13 @@
 		EC3652B02B8BCB140094C237 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652AF2B8BCB140094C237 /* ContentView.swift */; };
 		EC3652B22B8BCB140094C237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3652B12B8BCB140094C237 /* Assets.xcassets */; };
 		EC3652B52B8BCB140094C237 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3652B42B8BCB140094C237 /* Preview Assets.xcassets */; };
-		EC3652BF2B8BCB150094C237 /* DemoPetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652BE2B8BCB150094C237 /* DemoPetAppTests.swift */; };
 		EC3652C92B8BCB150094C237 /* DemoPetAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652C82B8BCB150094C237 /* DemoPetAppUITests.swift */; };
 		EC3652CB2B8BCB150094C237 /* DemoPetAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652CA2B8BCB150094C237 /* DemoPetAppUITestsLaunchTests.swift */; };
 		EC3652D82B8BCBE90094C237 /* DemoPetAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652D72B8BCBE90094C237 /* DemoPetAppViewModel.swift */; };
 		EC3652DA2B8BCCD70094C237 /* PetfinderAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652D92B8BCCD70094C237 /* PetfinderAnimals.swift */; };
 		EC3652DC2B8BCD8B0094C237 /* AnimalsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3652DB2B8BCD8B0094C237 /* AnimalsNetworkService.swift */; };
 		ECCD8CA82B8E620D0053B06A /* AnimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD8CA72B8E620D0053B06A /* AnimalView.swift */; };
+		ECCD8CAE2B8E6F6B0053B06A /* DemoPetAppViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD8CAD2B8E6F6B0053B06A /* DemoPetAppViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 		EC3652B12B8BCB140094C237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC3652B42B8BCB140094C237 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EC3652BA2B8BCB150094C237 /* DemoPetAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoPetAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC3652BE2B8BCB150094C237 /* DemoPetAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPetAppTests.swift; sourceTree = "<group>"; };
 		EC3652C42B8BCB150094C237 /* DemoPetAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoPetAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3652C82B8BCB150094C237 /* DemoPetAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPetAppUITests.swift; sourceTree = "<group>"; };
 		EC3652CA2B8BCB150094C237 /* DemoPetAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPetAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		EC3652D92B8BCCD70094C237 /* PetfinderAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetfinderAnimals.swift; sourceTree = "<group>"; };
 		EC3652DB2B8BCD8B0094C237 /* AnimalsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsNetworkService.swift; sourceTree = "<group>"; };
 		ECCD8CA72B8E620D0053B06A /* AnimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalView.swift; sourceTree = "<group>"; };
+		ECCD8CAD2B8E6F6B0053B06A /* DemoPetAppViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPetAppViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		EC3652BD2B8BCB150094C237 /* DemoPetAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC3652BE2B8BCB150094C237 /* DemoPetAppTests.swift */,
+				ECCD8CAD2B8E6F6B0053B06A /* DemoPetAppViewModelTests.swift */,
 			);
 			path = DemoPetAppTests;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC3652BF2B8BCB150094C237 /* DemoPetAppTests.swift in Sources */,
+				ECCD8CAE2B8E6F6B0053B06A /* DemoPetAppViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

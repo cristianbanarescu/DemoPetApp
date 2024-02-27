@@ -13,11 +13,16 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             let animals = viewModel.animals
+            let error = viewModel.error
+            let fetchingState = viewModel.fetchingState
             
             VStack {
-                if animals.isEmpty {
+                if fetchingState == .fetching {
                     ProgressView("Fetching animals")
-//                    ContentUnavailableView("No animals found!", systemImage: "cloud.rain")
+                }
+
+                if error != nil {
+                    ContentUnavailableView("No animals found!", systemImage: "cloud.rain")
                 } else {
                     List(animals) { animal in
                         NavigationLink {

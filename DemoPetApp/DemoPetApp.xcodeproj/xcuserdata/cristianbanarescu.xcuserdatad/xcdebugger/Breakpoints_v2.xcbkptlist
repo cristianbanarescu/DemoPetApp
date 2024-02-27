@@ -3,4 +3,102 @@
    uuid = "D5A4B91D-41AE-42CB-AC29-E39ADC573F39"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72321BC5-F7B6-4DA4-8BFC-72360E736BD6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoPetApp/Helpers/AnimalsNetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "handleOutput(output:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FF94E30-7BC7-4F7F-97F8-A94C05BC33B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoPetApp/ViewModel/DemoPetAppViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getAnimals()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9FF94E30-7BC7-4F7F-97F8-A94C05BC33B5 - ceb70c6db6c480c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DemoPetApp.DemoPetAppViewModel.getAnimals() -&gt; ()"
+                  moduleName = "DemoPetApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianbanarescu/iOS/DemoPetApp/DemoPetApp/DemoPetApp/ViewModel/DemoPetAppViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "1012">
+               </Location>
+               <Location
+                  uuid = "9FF94E30-7BC7-4F7F-97F8-A94C05BC33B5 - ceb70c6db6c480c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DemoPetApp.DemoPetAppViewModel.getAnimals() -&gt; ()"
+                  moduleName = "DemoPetApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianbanarescu/iOS/DemoPetApp/DemoPetApp/DemoPetApp/ViewModel/DemoPetAppViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "1256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B2F7D2E-6D50-4B91-8187-F1B6495E971C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoPetApp/ViewModel/DemoPetAppViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getAnimals()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5BCBCE62-FEE2-4FD0-925F-9E4B89E7DE55"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoPetApp/ViewModel/DemoPetAppViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "receivedCompletion(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

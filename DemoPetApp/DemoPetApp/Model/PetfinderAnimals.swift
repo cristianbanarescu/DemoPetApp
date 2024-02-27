@@ -30,7 +30,13 @@ struct Animal: Identifiable, Decodable {
     }
 }
 
-struct Breed: Codable {
+extension Animal: Equatable {
+    static func == (lhs: Animal, rhs: Animal) -> Bool {
+        lhs.id == rhs.id && lhs.breeds == rhs.breeds && lhs.name == rhs.name
+    }
+}
+
+struct Breed: Codable, Equatable {
     let primary: String
     let secondary: String?
     let mixed: Bool
