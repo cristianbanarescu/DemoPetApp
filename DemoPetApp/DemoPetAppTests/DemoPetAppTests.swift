@@ -8,6 +8,9 @@
 import XCTest
 @testable import DemoPetApp
 
+// TODO: add unit tests for:
+// NetworkService, Model, ViewModel 
+
 final class DemoPetAppTests: XCTestCase {
 
     override func setUpWithError() throws {

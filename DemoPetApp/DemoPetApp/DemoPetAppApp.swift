@@ -11,7 +11,7 @@ import SwiftUI
 struct DemoPetAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(animals: DemoPetAppViewModel(networkService: AnimalsNetworkService()).animals)
+            ContentView()
         }
     }
 }
